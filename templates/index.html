@@ -1,0 +1,113 @@
+{% extends 'base.html' %} 
+{% block title %} मुखपृष्ठ {% endblock title %} 
+{% block body %}
+
+<!--cart section-->
+<div class="hero-image1">
+    <div class="hero-text1">
+        <h2 class="breadcrumbs text-white display-3" style="font-family: 'Amatic SC', cursive; font-weight: bolder;">
+            <span class="mr-2">स्मार्ट फार्म</span>
+        </h2>
+        <p class="mb-0 bread font-weight-bold">
+            आपल्या शेतीच्या धोरणाची माहिती घ्या
+        </p>
+        <br />
+        <p><a href="" class="btn view rounded-pill">तपशील पहा</a></p>
+    </div>
+</div>
+<!--/cart section-->
+<br />
+
+<!--about us-->
+<section>
+    <div class="container">
+        <h1 class="text-center text-capitalize pt-5" style="font-family: 'Arima Madurai', cursive;">आमच्याबद्दल</h1>
+        <hr class="w-25 mx-auto" />
+
+        <div class="row mb-5">
+            <div class="col-lg-6 col-md-6 col-12">
+                <!-- <img src="{{ url_for('static', filename='images/3.jpeg') }}" class="img-fluid w-100" /> -->
+                <figure class="snip1256">
+                    <img src="{{ url_for('static', filename='images/3.jpeg') }}" alt="sample42" />
+                    <figcaption>
+                        <h3>आपल्याला हे आवडेल अशी आशा आहे......</h3>
+                        <h4 class="mt-4 mb-4">मशीन लर्निंग वापरून सूक्ष्म शेती</h4><a href="#" class="read-more">अधिक वाचा</a>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-lg-6" style="font-family: 'Arima Madurai', cursive;">
+                <h3 class="mt-4">
+                    शेती सुधारत, जीवन सुधारत, शेतकऱ्यांचा नफा वाढवण्यासाठी पिके लागवड करणे
+                </h3>
+                <p class="mt-3" style="line-height: 1.6">
+                    आम्ही संपूर्ण शेतीप्रक्रियेचे मार्गदर्शन करण्यासाठी अत्याधुनिक मशीन लर्निंग आणि डीप लर्निंग तंत्रज्ञान वापरतो. आपल्या भागाचे जनसांख्यिकीय समजून घेण्यासाठी माहितीपूर्ण निर्णय घ्या, आपल्या पिकावर परिणाम करणारे घटक समजून घ्या आणि उत्कृष्ट उत्पादनासाठी त्यांना निरोगी ठेवा.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--about us end-->
+
+<!--service part-->
+<section>
+    <div class="container">
+        <h1 class="text-center text-capitalize pt-5" style="font-family: 'Arima Madurai', cursive;">आमच्या सेवा</h1>
+        <hr class="w-25 mx-auto" />
+
+        <div class="row text-center mb-5 p-3">
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1" style="font-family: 'Arima Madurai', cursive;">
+                    <img class="card-img-top" src="{{url_for('static', filename='images/a.jpg')}}" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">पीक</h4>
+                        <p class="card-text">अनुकूल परिस्थितीसाठी सर्वात योग्य पिकांच्या प्रकारांबद्दल शिफारसी.</p>
+                        <p><a href="{{ url_for('crop_recommend') }}" class="btn view rounded-pill">तपशील पहा</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1" style="font-family: 'Arima Madurai', cursive;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/c.jpg') }}" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">खते</h4>
+                        <p class="card-text">विशिष्ट माती आणि शिफारस केलेल्या पिकासाठी सर्वात योग्य खतांच्या प्रकारांबद्दल शिफारसी.</p>
+                        <p><a href="{{ url_for('fertilizer_recommendation') }}" class="btn view rounded-pill">तपशील पहा</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1" style="font-family: 'Arima Madurai', cursive;">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/b.jpg') }}" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">पीक रोग</h4>
+                        <p class="card-text">पीक रोगाचे नाव आणि कारणे ओळखणे आणि त्यावर उपाय सुचवणे.</p>
+                        <p><a href="{{ url_for('disease_prediction') }}" class="btn view rounded-pill">तपशील पहा</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--services end-->
+
+<!-- footer section start-->
+
+<footer class="page-footer font-small blue">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 bg-dark text-light p-2" style="background-image: url(https://images.pexels.com/photos/5980/food-sunset-love-field.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);background-size: cover; height: 100px; background-position: center; position:center; font-family: 'Arima Madurai', cursive;">
+        <h5> © 2024 सर्वाधिकार राखीव: मशीन लर्निंग वापरून सूक्ष्म शेती
+            <div class="text-center text-white text-uppercase font-weight-bold">हरित राहा....</div>
+        </h5>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<!-- footer section end -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFV...
+<!-- Rest of your scripts -->
+
+{% endblock body %}
