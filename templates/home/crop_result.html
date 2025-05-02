@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌾 Crop Prediction Result</h1>
+
+    <!-- Language Selection Dropdown -->
+    <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="mr">मराठी</option>
+    </select>
+
+    <!-- Display Predicted Crop -->
+    {% if predicted_crop %}
+        <h2 id="resultTextEn">Recommended Crop: <span id="cropEn">{{ predicted_crop }}</span></h2>
+        <h2 id="resultTextMr" class="hidden">शिफारस केलेले पीक: <span id="cropMr">{{ translated_crop }}</span></h2>
+    {% else %}
+        <h2>No prediction available. Please submit the form.</h2>
+    {% endif %}
+
+    <script>
+        function changeLanguage() {
+            var lang = document.getElementById("languageSelect").value;
+
+            if (lang === "mr") {
+                document.getElementById("resultTextEn").classList.add("hidden");
+                document.getElementById("resultTextMr").classList.remove("hidden");
+            } else {
+                document.getElementById("resultTextEn").classList.remove("hidden");
+                document.getElementById("resultTextMr").classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>

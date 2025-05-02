@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translate Model Output</title>
+</head>
+<body>
+    <h1>Model Prediction & Translation</h1>
+
+    <form id="predictForm" method="POST">
+        {% csrf_token %}
+        <textarea name="text" placeholder="Enter text for prediction" rows="4" cols="50"></textarea><br>
+
+        <button type="submit">Get Prediction</button>
+    </form>
+
+    <div>
+        <h3>Original Prediction:</h3>
+        <p id="prediction_result"></p>
+    </div>
+
+    <label>Select Language:</label>
+    <select id="languageSelect">
+        <option value="hi">Hindi</option>
+        <option value="mr">Marathi</option>
+        <option value="ta">Tamil</option>
+        <option value="gu">Gujarati</option>
+    </select>
+
+    <button id="translateButton">Translate</button>
+
+    <div>
+        <h3>Translated Prediction:</h3>
+        <p id="translated_result"></p>
+    </div>
+
+    <script>
+        let originalPrediction = "";  // Store the model prediction
+
+        document.getElementById('predictForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            fetch("{% url 'predict_and_translate' %}", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.prediction) {
+                    originalPrediction = data.prediction;  // Store model output
+                    document.getElementById('prediction_result').innerText = data.prediction;
+                } else if (data.error) {
+                    document.getElementById('prediction_result').innerText = 'Error: ' + data.error;
+                }
+            });
+        });
+
+        document.getElementById('translateButton').addEventListener('click', function() {
+            const selectedLanguage = document.getElementById('languageSelect').value;
+
+            if (!originalPrediction) {
+                document.getElementById('translated_result').innerText = "Please get a prediction first.";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("text", originalPrediction);
+            formData.append("language", selectedLanguage);
+            
+            fetch("{% url 'predict_and_translate' %}", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.translated_text) {
+                    document.getElementById('translated_result').innerText = data.translated_text;
+                } else if (data.error) {
+                    document.getElementById('translated_result').innerText = 'Error: ' + data.error;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
