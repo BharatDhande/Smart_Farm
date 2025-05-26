@@ -94,7 +94,7 @@ SmartFarm/
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/SmartFarm.git
+   git clone https://github.com/BharatDhande/Smart_Farm.git
    cd SmartFarm
 🙌 Acknowledgements
 
